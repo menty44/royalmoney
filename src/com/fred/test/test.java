@@ -34,6 +34,7 @@ public class test {
         String PartnerTransactionNo = "225";
         String Remark = "testin gcancel";
         String ProductID = "1";
+        String Credentials = null;
         
         // Create the connection
 		SOAPConnectionFactory scf = SOAPConnectionFactory.newInstance();
@@ -72,7 +73,7 @@ public class test {
 		// namespace to use for my rpc/encoded wsdl version is:
 	    	
 		// Add content
-		be.addChildElement("Credentials").addTextNode(LoginCode).setAttribute("xsi:type","xsd:string");
+		be.addChildElement("Credentials").addTextNode(Credentials).setAttribute("xsi:type","xsd:string");
 		be.addChildElement("LoginCode").addTextNode(LoginCode).setAttribute("xsi:type","xsd:string");
 		be.addChildElement("AgentCode").addTextNode(AgentCode).setAttribute("xsi:type","xsd:string");
 		be.addChildElement("UserCode").addTextNode(UserCode).setAttribute("xsi:type","xsd:string");
