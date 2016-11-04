@@ -73,8 +73,16 @@ public class test {
 		// namespace to use for my rpc/encoded wsdl version is:
 	    	
 		// Add content
+<<<<<<< HEAD
 		be.addChildElement("Credentials").addTextNode(Credentials).setAttribute("xsi:type","xsd:string");
+=======
+<<<<<<< HEAD
+		be.addChildElement("LoginCode").addTextNode(LoginCode).setAttribute("xsi","xsd:string");
+=======
+		be.addChildElement("Credentials").addTextNode(LoginCode).setAttribute("xsi:type","xsd:string");
+>>>>>>> b93f8784e9fe528de25313465c9fa4371eb156db
 		be.addChildElement("LoginCode").addTextNode(LoginCode).setAttribute("xsi:type","xsd:string");
+>>>>>>> c2540e32e378cfab47c71187ecc737d23f8e7783
 		be.addChildElement("AgentCode").addTextNode(AgentCode).setAttribute("xsi:type","xsd:string");
 		be.addChildElement("UserCode").addTextNode(UserCode).setAttribute("xsi:type","xsd:string");
 		be.addChildElement("Password").addTextNode(Password).setAttribute("xsi:type","xsd:string");

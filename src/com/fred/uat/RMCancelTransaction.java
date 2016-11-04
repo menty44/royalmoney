@@ -26,7 +26,10 @@ public class RMCancelTransaction {
     	 SOAPEnvelope soapEnvelope = soapPart.getEnvelope();
          soapEnvelope.addNamespaceDeclaration("xsi","http://www.w3.org/2001/XMLSchema-instance");
     	 soapEnvelope.addNamespaceDeclaration("end", "http://www.w3.org/TR/html4/");
-    	 //soapEnvelope.addNamespaceDeclaration("xmlns", "http://www.w3.org/TR/html4/");
+    	 soapEnvelope.addNamespaceDeclaration("xmlns", "http://www.w3.org/TR/html4/");
+    	 soapEnvelope.addNamespaceDeclaration("xmlns:xsi","http://www.w3.org/2001/XMLSchema-instance");
+    	 soapEnvelope.addNamespaceDeclaration("xmlns:xsd", "http://www.w3.org/2001/XMLSchema");
+    	 soapEnvelope.addNamespaceDeclaration("xmlns:soap", "http://schemas.xmlsoap.org/soap/envelope/");
                  
          //SOAPMessage message = factory.createMessage();
          //SOAPHeader header = soapMessage.getSOAPHeader();
@@ -43,6 +46,7 @@ public class RMCancelTransaction {
 		 
 		 SOAPElement soapElement1 = soapBody.addChildElement("RMCancelTransaction");
          //SOAPElement soapElement1 = soapBody.addBodyElement(Name);
+		 
 		 SOAPElement soapElement = soapElement1.addChildElement("CanslTrnReq");
 		 
 		 SOAPElement soapElement3 = soapElement.addChildElement("Credentials");
@@ -89,11 +93,11 @@ public class RMCancelTransaction {
 		System.out.println(" ****  **** ");
 		
 		// Get reply content		
-		String resp1  = soapResponse.getSOAPPart().getElementsByTagName("PartnerTransactionNo").item(0).getFirstChild().getNodeValue();
+		//String resp1  = soapResponse.getSOAPPart().getElementsByTagName("PartnerTransactionNo").item(0).getFirstChild().getNodeValue();
 		String resp2  = soapResponse.getSOAPPart().getElementsByTagName("status").item(0).getFirstChild().getNodeValue(); 
 		String resp3  = soapResponse.getSOAPPart().getElementsByTagName("Message").item(0).getFirstChild().getNodeValue();
 		
-		System.out.println("PartnerTransactionNo              ::::  " + resp1);
+		//System.out.println("PartnerTransactionNo              ::::  " + resp1);
 		System.out.println("status               ::::  " + resp2);
 		System.out.println("Message           ::::  " + resp3);
 
@@ -108,8 +112,8 @@ public class RMCancelTransaction {
 			 
 			 SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
 			 SOAPConnection soapConnection = soapConnectionFactory.createConnection();
-			 //String url = "https://www.royalexchange.co.in:460/RoyalMoneyCashnBankServiceAsmx/RMService.asmx?WSDL";
-			 String url = "https://www.royalexchange.co.in:460/RoyalMoneyCashnBankServiceAsmx/RMService.asmx";
+			 String url = "https://www.royalexchange.co.in:460/RoyalMoneyCashnBankServiceAsmx/RMService.asmx?WSDL";
+			 //String url = "https://www.royalexchange.co.in:460/RoyalMoneyCashnBankServiceAsmx/RMService.asmx";
 			 SOAPMessage soapRequest = createSoapRequest();
 			 //hit soapRequest to the server to get response
 			 SOAPMessage soapResponse = soapConnection.call(soapRequest, url);
