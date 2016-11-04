@@ -67,17 +67,23 @@ public class test {
 		// Populate body
 		// Main element and namespace
 		SOAPElement be = bd.addChildElement(env.createName("RMCancelTransaction")); 
+		SOAPElement be1 = bd.addChildElement(env.createName("CanslTrnReq"));
 		
 		// namespace to use for my rpc/encoded wsdl version is:
 	    	
 		// Add content
+<<<<<<< HEAD
 		be.addChildElement("LoginCode").addTextNode(LoginCode).setAttribute("xsi","xsd:string");
+=======
+		be.addChildElement("Credentials").addTextNode(LoginCode).setAttribute("xsi:type","xsd:string");
+		be.addChildElement("LoginCode").addTextNode(LoginCode).setAttribute("xsi:type","xsd:string");
+>>>>>>> c2540e32e378cfab47c71187ecc737d23f8e7783
 		be.addChildElement("AgentCode").addTextNode(AgentCode).setAttribute("xsi:type","xsd:string");
 		be.addChildElement("UserCode").addTextNode(UserCode).setAttribute("xsi:type","xsd:string");
 		be.addChildElement("Password").addTextNode(Password).setAttribute("xsi:type","xsd:string");
-		be.addChildElement("PartnerTransactionNo").addTextNode(PartnerTransactionNo).setAttribute("xsi:type","xsd:string");
-		be.addChildElement("Remark").addTextNode(Remark).setAttribute("xsi:type","xsd:string");
-		be.addChildElement("ProductID").addTextNode(ProductID).setAttribute("xsi:type","xsd:int");
+		be1.addChildElement("PartnerTransactionNo").addTextNode(PartnerTransactionNo).setAttribute("xsi:type","xsd:string");
+		be1.addChildElement("Remark").addTextNode(Remark).setAttribute("xsi:type","xsd:string");
+		be1.addChildElement("ProductID").addTextNode(ProductID).setAttribute("xsi:type","xsd:int");
 	
 		// Save message
 		msg.saveChanges();
